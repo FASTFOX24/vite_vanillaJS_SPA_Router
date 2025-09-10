@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "baseUrl": "src", 
+    "baseUrl": "src",  // vite의 alias와 별개로 TS가 절대 경로를 사용하기 위해서 추가 설정
     "paths": {
       "@/*": ["*"]
     },
-    "jsx": "react-jsx",
-    "jsxImportSource": "@/lib/jsx",
+    "jsx": "react-jsx", // "react-jsx"는 React 17+ 방식의 새로운 JSX 변환을 의미하는데, 여기서는 React 대신 내가 만든 커스텀 JSX 런타임에 적용. 즉, <div /> 같은 JSX가 jsx("div", ...) 형태로 바뀌도록 트랜스폼됨.
+    "jsxImportSource": "@/lib/jsx", // jsx 파일을 변환하는데 필요한 h, jsx, fragment를 어디서 가져올지 결정. TS 컴파일러는 jsx-dev-runtime.ts와 jsx-runtime.ts를 자동으로 개발환경과 빌드환경을 구분해 import 해주기 때문에 @/lib/jsx 까지만 작성해도 된다.
     "target": "ES2022",
     "useDefineForClassFields": true,
     "module": "ESNext",
